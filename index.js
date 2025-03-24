@@ -51,6 +51,8 @@ app.get("/api/map", authenticate, (req, res) => {
   res.json(data.map);
 });
 
-app.listen(PORT, () =>
-  console.log(`Server running on http://localhost:${PORT}`)
-);
+// app.listen(PORT, () =>
+//   console.log(`Server running on http://localhost:${PORT}`)
+// );
+
+module.exports = app;
