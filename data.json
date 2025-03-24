@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin"
+    }
+  ],
+  "dashboard": [
+    { "id": 1, "title": "Card 1" },
+    { "id": 2, "title": "Card 2" }
+  ]
+}
