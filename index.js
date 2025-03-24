@@ -4,7 +4,6 @@ const cors = require("cors");
 const jwt = require("jsonwebtoken");
 
 const app = express();
-const PORT = 5001;
 const SECRET_KEY = "my_secret_key";
 
 app.use(cors());
