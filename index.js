@@ -20,7 +20,7 @@ app.post("/api/login", (req, res) => {
     const token = jwt.sign({ username }, SECRET_KEY, {
       expiresIn: "1h",
     });
-    res.json({ token });
+    return res.json({ token });
   }
 
   return res.status(401).json({ message: "Invalid credentials" });
@@ -50,4 +50,6 @@ app.get("/api/map", authenticate, (req, res) => {
   res.json(data.map);
 });
 
-module.exports = app;
+// Vercel Handler ✅
+const server = require("serverless-http")(app);
+module.exports = server;
