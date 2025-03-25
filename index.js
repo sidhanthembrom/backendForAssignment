@@ -4,6 +4,7 @@ const cors = require("cors");
 const jwt = require("jsonwebtoken");
 
 const app = express();
+const PORT = 5001;
 const SECRET_KEY = "my_secret_key";
 
 app.use(cors());
@@ -20,7 +21,7 @@ app.post("/api/login", (req, res) => {
     const token = jwt.sign({ username }, SECRET_KEY, {
       expiresIn: "1h",
     });
-    return res.json({ token });
+    res.json({ token });
   }
 
   return res.status(401).json({ message: "Invalid credentials" });
@@ -50,6 +51,6 @@ app.get("/api/map", authenticate, (req, res) => {
   res.json(data.map);
 });
 
-// Vercel Handler ✅
-const server = require("serverless-http")(app);
-module.exports = server;
+app.listen(PORT, () =>
+  console.log(`Server running on http://localhost:${PORT}`)
+);
